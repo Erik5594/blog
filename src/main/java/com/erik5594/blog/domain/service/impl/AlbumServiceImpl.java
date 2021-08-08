@@ -1,7 +1,6 @@
 package com.erik5594.blog.domain.service.impl;
 
 import com.erik5594.blog.domain.entity.Album;
-import com.erik5594.blog.domain.entity.Post;
 import com.erik5594.blog.domain.entity.Usuario;
 import com.erik5594.blog.domain.exceptions.AlbumNaoEncontradoException;
 import com.erik5594.blog.domain.exceptions.SemPermissaoExcluirAlbumException;
@@ -50,5 +49,13 @@ public class AlbumServiceImpl implements AlbumService {
 
     private boolean isUsuarioCriador(Album album, String emailUsuario){
         return album.getCriador().getEmail().equalsIgnoreCase(emailUsuario);
+    }
+
+    public void setRepository(AlbumRepository repository) {
+        this.repository = repository;
+    }
+
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
     }
 }

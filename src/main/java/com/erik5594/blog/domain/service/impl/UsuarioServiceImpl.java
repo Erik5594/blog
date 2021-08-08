@@ -61,4 +61,8 @@ public class UsuarioServiceImpl implements UsuarioService {
         if(StringUtils.isBlank(senha))
             throw new SenhaUsuarioObrigatorioException();
     }
+
+    public void setRepository(UsuarioRepository repository) {
+        this.repository = repository;
+    }
 }

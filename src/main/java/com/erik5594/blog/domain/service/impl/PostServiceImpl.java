@@ -63,4 +63,16 @@ public class PostServiceImpl implements PostService {
     public List<Post> buscarTodos() {
         return repository.findAll();
     }
+
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
+    public void setRepository(PostRepository repository) {
+        this.repository = repository;
+    }
+
+    public void setComentarioService(ComentarioService comentarioService) {
+        this.comentarioService = comentarioService;
+    }
 }

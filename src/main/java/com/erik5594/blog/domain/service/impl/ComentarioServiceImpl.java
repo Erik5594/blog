@@ -73,4 +73,18 @@ public class ComentarioServiceImpl implements ComentarioService {
     public void excluirComentariosDoPost(Long idPost) {
         repository.deleteAllByPost_IdEquals(idPost);
     }
+
+    public void setPostService(PostService postService) {
+        this.postService = postService;
+    }
+
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
+    public void setRepository(ComentarioRepository repository) {
+        this.repository = repository;
+    }
+
+
 }

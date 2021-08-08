@@ -34,4 +34,7 @@ public class JwtUserDetailsService implements UserDetailsService {
         }
     }
 
+    public void setUserService(UsuarioService userService) {
+        this.userService = userService;
+    }
 }
