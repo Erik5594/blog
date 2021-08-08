@@ -2,14 +2,11 @@ package com.erik5594.blog.api.assembler.impl;
 
 import com.erik5594.blog.api.assembler.Assembler;
 import com.erik5594.blog.api.dto.PostDto;
-import com.erik5594.blog.domain.entity.Imagem;
-import com.erik5594.blog.domain.entity.Link;
 import com.erik5594.blog.domain.entity.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,5 +29,9 @@ public class ListPostAssemblerImpl implements Assembler<List<PostDto>, List<Post
     @Override
     public List<PostDto> entityToDto(List<Post> entity) {
         return entity.stream().map(assembler::entityToDto).collect(Collectors.toList());
+    }
+
+    public void setAssembler(PostAssemblerImpl assembler) {
+        this.assembler = assembler;
     }
 }

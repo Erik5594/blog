@@ -15,6 +15,8 @@ public class PostDto {
     public List<String> imagensBase64;
 
     public PostDto() {
+        this.links = new ArrayList<>();
+        this.imagensBase64 = new ArrayList<>();
     }
 
     public PostDto(String titulo, String conteudo) {

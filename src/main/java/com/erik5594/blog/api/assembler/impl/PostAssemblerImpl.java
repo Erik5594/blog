@@ -25,7 +25,7 @@ public class PostAssemblerImpl implements Assembler<PostDto, Post> {
     @Override
     public Post dtoToEntity(PostDto dto) {
         Post post = new Post(dto.titulo, dto.conteudo);
-        post.setImagems(getListImagens(dto.imagensBase64, post));
+        post.setImagens(getListImagens(dto.imagensBase64, post));
         post.setLinks(getListLinks(dto.links, post));
         return post;
     }
@@ -34,16 +34,22 @@ public class PostAssemblerImpl implements Assembler<PostDto, Post> {
     public PostDto entityToDto(Post entity) {
         PostDto postDto = new PostDto(entity.getTitulo(), entity.getConteudo());
         postDto.links = getListLinksDto(entity.getLinks());
-        postDto.imagensBase64 = getListImagensDto(entity.getImagems());
+        postDto.imagensBase64 = getListImagensDto(entity.getImagens());
         return postDto;
     }
 
     private List<String> getListLinksDto(List<Link> links){
-        return links.stream().map(Link::getUrl).collect(Collectors.toList());
+        if(links != null) {
+            return links.stream().map(Link::getUrl).collect(Collectors.toList());
+        }
+        return new ArrayList<>();
     }
 
     private List<String> getListImagensDto(List<Imagem> imagems){
-        return imagems.stream().map(Imagem::getImagemBase64).collect(Collectors.toList());
+        if(imagems != null) {
+            return imagems.stream().map(Imagem::getImagemBase64).collect(Collectors.toList());
+        }
+        return new ArrayList<>();
     }
 
     private List<Imagem> getListImagens(List<String> imagensDto, Post post){

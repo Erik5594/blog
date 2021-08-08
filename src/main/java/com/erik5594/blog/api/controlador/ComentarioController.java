@@ -3,10 +3,8 @@ package com.erik5594.blog.api.controlador;
 import com.erik5594.blog.api.assembler.Assembler;
 import com.erik5594.blog.api.dto.ComentarioDto;
 import com.erik5594.blog.api.dto.ComentarioResponseDto;
-import com.erik5594.blog.api.dto.PostDto;
 import com.erik5594.blog.config.security.JwtTokenUtil;
 import com.erik5594.blog.domain.entity.Comentario;
-import com.erik5594.blog.domain.entity.Post;
 import com.erik5594.blog.domain.service.ComentarioService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -16,9 +14,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 /**

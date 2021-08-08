@@ -1,6 +1,7 @@
 package com.erik5594.blog.domain.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,18 +21,22 @@ public class Post {
     private List<Link> links;
 
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private List<Imagem> imagems;
+    private List<Imagem> imagens;
 
     @JoinColumn(name = "usuario_id")
     @ManyToOne
     private Usuario criador;
 
     public Post() {
+        this.imagens = new ArrayList<>();
+        this.links = new ArrayList<>();
     }
 
     public Post(String titulo, String conteudo) {
         this.titulo = titulo;
         this.conteudo = conteudo;
+        this.imagens = new ArrayList<>();
+        this.links = new ArrayList<>();
     }
 
     public Long getId() {
@@ -74,11 +79,11 @@ public class Post {
         this.links = links;
     }
 
-    public List<Imagem> getImagems() {
-        return imagems;
+    public List<Imagem> getImagens() {
+        return imagens;
     }
 
-    public void setImagems(List<Imagem> imagems) {
-        this.imagems = imagems;
+    public void setImagens(List<Imagem> imagens) {
+        this.imagens = imagens;
     }
 }

@@ -1,7 +1,6 @@
 package com.erik5594.blog.api.assembler.impl;
 
 import com.erik5594.blog.api.assembler.Assembler;
-import com.erik5594.blog.api.dto.ComentarioDto;
 import com.erik5594.blog.api.dto.ComentarioResponseDto;
 import com.erik5594.blog.domain.entity.Comentario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +36,9 @@ public class ListComentarioAssemblerImpl implements Assembler<List<ComentarioRes
             return entity.stream().map(assembler::entityToDto).collect(Collectors.toList());
         }
         return new ArrayList<>();
+    }
+
+    public void setAssembler(ComentarioAssemblerImpl assembler) {
+        this.assembler = assembler;
     }
 }
